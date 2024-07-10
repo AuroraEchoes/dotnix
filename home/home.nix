@@ -30,7 +30,6 @@
 	home.packages = [
 		pkgs.unzip
 		pkgs.cmake
-		godot4-dotnet
 		pkgs.dotnetCorePackages.sdk_6_0_1xx
 	];
 

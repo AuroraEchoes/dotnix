@@ -9,7 +9,8 @@ plugin.opts = {
 	ensure_installed = {
 		"rust",
 		"cpp",
-		"java"
+		"java",
+		"c_sharp"
 	}
 }
 return plugin
