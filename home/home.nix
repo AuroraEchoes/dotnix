@@ -31,6 +31,11 @@
 		pkgs.unzip
 		pkgs.cmake
 		pkgs.dotnetCorePackages.sdk_6_0_1xx
+		pkgs.spotify
+		pkgs.aseprite
+		pkgs.nautilus
+		pkgs.obs-studio
+		pkgs.ffmpeg
 	];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -10,7 +10,7 @@
 		nur.url = "github:nix-community/nur";
 	};
 
-	outputs = { self, nixpkgs, nur, home-manager, ... } @ inputs: 
+	outputs = { self, nixpkgs, nur, home-manager,  ... } @ inputs: 
 		let
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";

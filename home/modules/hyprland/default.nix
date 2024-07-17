@@ -9,7 +9,7 @@
 	];
 
 	home.sessionVariables = {
-		HYPERSHOT_DIR = "$HOME/Pictures/Screenshots";
+		HYPERSHOT_DIR = "/home/aurora/Pictures";
 	};
 
 	wayland.windowManager.hyprland = {
