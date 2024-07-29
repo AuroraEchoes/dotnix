@@ -36,6 +36,8 @@
 		pkgs.nautilus
 		pkgs.obs-studio
 		pkgs.ffmpeg
+		pkgs.zip
+		pkgs.nodejs_22
 	];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage

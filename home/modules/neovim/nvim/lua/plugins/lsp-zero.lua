@@ -36,7 +36,8 @@ plugin.config = function()
 			"jdtls",
 			"pylsp",
 			"clangd",
-			"omnisharp"
+			"omnisharp",
+			"tsserver"
 		},
 		handlers = {
 			function(server_name)
