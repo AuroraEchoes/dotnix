@@ -13,21 +13,48 @@
 	outputs = { self, nixpkgs, nur, home-manager,  ... } @ inputs: 
 		let
 			lib = nixpkgs.lib;
-			system = "x86_64-linux";
-			pkgs = import nixpkgs {
-				inherit system;
-				overlays = [inputs.nur.overlay];
-				config = { allowUnfree = true; };
+		in 
+		{ 
+			nixosConfigurations = {
+				faernton = lib.nixosSystem {
+					system = "x86_64-linux";
+					modules = [
+						./nixos/configuration.nix
+					];
+				};
+
+				davenport = lib.nixosSystem {
+					system = "aarch64-linux";
+					modules = [
+						./nixos/configuration.nix
+						./nixos/davenport-configuration.nix
+					];
+				};
 			};
-		in { 
-			nixosConfigurations.faernton = lib.nixosSystem {
-				inherit system;
-				modules = [ ./nixos/configuration.nix ];
-			};
-			homeConfigurations.aurora = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-				modules = [ ./home/home.nix ];
-				extraSpecialArgs = { inherit inputs; };
+
+			homeManagerConfigurations = {
+				"aurora@faernton" = home-manager.lib.homeManagerConfiguration {
+					pkgs = import nixpkgs {
+						system = "x86_64-linux";
+						overlays = [inputs.nur.overlay];
+						config = { allowUnfree = true; };
+					};
+					configuration = ./home/faernton.nix;
+					system = "x86_64-linux";
+					username = "aurora";
+					extraSpecialArgs = { inherit inputs; };
+				};
+				"aurora@davenport" = home-manager.lib.homeManagerConfiguration {
+					pkgs = import nixpkgs {
+						system = "aarch64-linux";
+						overlays = [inputs.nur.overlay];
+						config = { allowUnfree = true; };
+					};
+					configuration = ./home/davenport.nix;
+					system = "aarch64-linux";
+					username = "aurora";
+					extraSpecialArgs = { inherit inputs; };
+				};
 			};
 		};
 }

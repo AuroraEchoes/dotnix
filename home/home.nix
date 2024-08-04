@@ -38,6 +38,11 @@
 		pkgs.ffmpeg
 		pkgs.zip
 		pkgs.nodejs_22
+		pkgs.rustc
+		pkgs.cargo
+		pkgs.gccgo14
+		pkgs.openssl.dev
+		pkgs.pkg-config
 	];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
